@@ -8,11 +8,11 @@ def power(line):
     :return: массив с именем монстра, его возможностью и мощностью силы
     '''
     if line[1] == 'регенерация':
-        return [line[0], line[1], int(line[5]) * int(line[2]) / 100]
+        return [line[0], line[1], round(int(line[5]) * (int(line[2]) / 100),3)]
     if line[1] == 'дополнительный ход':
-        return [line[0], line[1], sum(map(int, line[3:7])) * int(line[2])/100]
+        return [line[0], line[1], round((sum(map(int, line[3:7])) * (int(line[2])/100)),3)]
     if line[1] == 'усиление атаки':
-        return [line[0], line[1], int(line[3]) * (int(line[2]) / 100)]
+        return [line[0], line[1], round(int(line[3]) * (int(line[2]) / 100), 3)]
 
 
 def main():
@@ -26,7 +26,7 @@ def main():
         data1 = []
     for line in data:
         data1.append(power(line))
-    c = 1
+    c = 0
     for line in data1:
         print(line[2])
         c+=1
