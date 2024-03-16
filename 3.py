@@ -16,8 +16,6 @@ def main():
     with open('monster_game.txt', encoding='utf8') as file:
         row = file.readline().split('$')
         data = list(csv.reader(file, delimiter='$'))
-        print(row)
-        print(data)
         name = input()
         while name!='мир':
             mdata = search(name, data)
